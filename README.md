@@ -1,5 +1,7 @@
 # <div align="center"> Unified Gradient-Based Machine Unlearning with Remain Geometry Enhancement </div>
 
+> This repository contains code for the paper [Unified Gradient-Based Machine Unlearning with Remain Geometry Enhancement](https://arxiv.org/pdf/2409.19732v1) by Zhehao Huang, Xinwen Cheng, JingHao Zheng, Haoran Wang, Zhengbao He, Tao Li, Xiaolin Huang.
+
 <table align="center">
   <tr>
     <td align="center"> 
@@ -29,7 +31,7 @@ git clone https://github.com/K1nght/Unified-Unlearning-w-Remain-Geometry.git
 
     * [CIFAR-10 using DDPM](DDPM)
 
-    * ImageNet using DiT (coming soon)
+    * [ImageNet using DiT](DiT)
 
     * Stable Diffusion (coming soon)
 
@@ -40,12 +42,17 @@ We will try our best to release as soon as possible.
 
 - [x] DDPM 
 
-- [ ] DiT
+- [x] DiT
 
 - [ ] Stable Diffusion
 
-
-# 🤗 Acknowledgements
-
 # 📚 Citation
 
+```
+@article{huang2024unified,
+  title={Unified Gradient-Based Machine Unlearning with Remain Geometry Enhancement},
+  author={Huang, Zhehao and Cheng, Xinwen and Zheng, JingHao and Wang, Haoran and He, Zhengbao and Li, Tao and Huang, Xiaolin},
+  journal={arXiv preprint arXiv:2409.19732},
+  year={2024}
+}
+```
