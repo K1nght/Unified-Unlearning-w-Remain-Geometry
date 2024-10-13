@@ -39,7 +39,7 @@ training:
     log_freq: 10
     visualization_samples: 100
     train_embeddings: False
-    lambd: 0.5 
+    gamma: 0.5 
 
 sampling:
     batch_size: 128

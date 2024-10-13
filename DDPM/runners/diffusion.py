@@ -1115,7 +1115,7 @@ class Diffusion(object):
             elif args.unlearn_loss == "adaga":
                 ori_forget_loss = -adaptive_loss(
                     loss_registry_conditional[config.model.type],
-                    model, forget_x, t, forget_c, e, b, lambd=self.config.training.lambd
+                    model, forget_x, t, forget_c, e, b, gamma=self.config.training.gamma
                 )
             forget_loss = cur_forget_alpha * ori_forget_loss
             if args.method == "ron":
@@ -1183,7 +1183,7 @@ class Diffusion(object):
                 logging.info(f"step:{step:04d}, remain L:{ori_remain_loss.item():.4f}, remain a:{args.remain_alpha}, forget L:{ori_forget_loss.item():.4f}, forget a:{cur_forget_alpha:.8f}, time:{end-start:.2f}")
                 start = time.time()
 
-            if (step + 1) > 199 and (step + 1) % self.config.training.snapshot_freq == 0:
+            if (step + 1) % self.config.training.snapshot_freq == 0:
                 states = [
                     model.state_dict(),
                     optimizer.state_dict(),
