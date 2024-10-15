@@ -587,7 +587,7 @@ class Diffusion(object):
                 for name, param in model.named_parameters():
                     if param.grad is not None:
                         param.grad *= mask[name].to(param.grad.device)
-            # optimizer.step()
+            optimizer.step()
 
             if self.config.model.ema:
                 ema_helper.update(model)
