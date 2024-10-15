@@ -33,18 +33,7 @@ git clone https://github.com/K1nght/Unified-Unlearning-w-Remain-Geometry.git
 
     * [ImageNet using DiT](DiT)
 
-    * Stable Diffusion (coming soon)
-
-# 💪 To-Do List
-We will try our best to release as soon as possible.
-
-- [x] Image Classification
-
-- [x] DDPM 
-
-- [x] DiT
-
-- [ ] Stable Diffusion
+    * [Stable Diffusion](SD)
 
 # 📚 Citation
 
