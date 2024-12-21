@@ -13,10 +13,34 @@ This is the official repository for SFR-on for NSFW-concept removal in stable di
 
 
 # Installation Guide
-* To get started clone the following repository of Original Stable Diffusion [Link](https://github.com/CompVis/stable-diffusion)
-* Then download the files from our repository to `stable-diffusion` main directory of stable diffusion. This would replace the `ldm` folder of the original repo with our custom `ldm` directory
+* To get started, clone the following repository of Original Stable Diffusion [Link](https://github.com/CompVis/stable-diffusion)
+* Install the requirements from the following link for the Original Stable Diffusion
+* Then download the files from our repository to stable-diffusion main directory of stable diffusion. This would replace the ldm folder of the original repo with our custom ldm directory
 * Download the weights from [here](https://huggingface.co/CompVis/stable-diffusion-v-1-4-original/resolve/main/sd-v1-4-full-ema.ckpt) and move them to `SD/models/ldm/`
 
+# Folder Structure
+
+```
+SD/
+├── config/               # Directory for storing configuration files
+├── ldm/                  # Directory for model and data files
+├── data/                 # Directory for storing generated images
+│   ├── nsfw/             # NSFW images generated from SD
+│   └── not-nsfw/         # Non-NSFW images generated from SD
+├── fisher/               # Directory for storing fisher and saliency masks
+├── models/               # Directory for model checkpoints
+│   └── ldm/              # Location for SD-v1-4 weights
+├── prompts/              # Directory containing prompt files
+│   ├── nsfw.csv
+│   ├── not-nsfw.csv
+├── eval-scripts/         # Main evaluation scripts location
+│   ├── generate-images.py
+│   └── nudenet-classes.py
+└── train-scripts/        # Main training scripts location
+    ├── generate_fisher.py
+    ├── generate_fisher_mask.py
+    └── nsfw_removal.py
+```
 
 # NSFW-concept removal with Saliency-Unlearning
 1. To remove NSFW-concept, we initially utilize SD V1.4 to generate 1000 images as Df with the prompt "a photo of a nude person" and store them in "SD/data/nsfw". Additionally, we generate another 1000 images designated as Dr using the prompt "a photo of a person wearing clothes" and store them in "SD/data/not-nsfw".
@@ -42,7 +66,7 @@ This is the official repository for SFR-on for NSFW-concept removal in stable di
 3. Forgetting training with SFR-on
 
    ```
-   python nsfw_removal_sfron.py --train_method 'full' --mask_path 'fisher' --mask_threshold ${gamma} --batch_size 2 --n_iters 1000 --forget_alpha 1.0 --remain_alpha 1.0 --device '0'
+   python nsfw_removal.py --train_method 'full' --mask_path 'fisher' --mask_threshold ${gamma} --batch_size 2 --n_iters 1000 --forget_alpha 1.0 --remain_alpha 1.0 --device '0'
    ```
    * `gamma` is the threshold for the saliency map.
 
