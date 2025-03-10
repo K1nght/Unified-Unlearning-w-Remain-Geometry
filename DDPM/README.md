@@ -23,6 +23,9 @@ pip install -r requirements.txt
 
    A checkpoint should be saved under `results/cifar10/pretrain/yyyy_mm_dd_hhmmss`.
 
+   Easy to go, you can download our pre-trained model from [here](https://drive.google.com/drive/folders/1TRouxJZAWHToCj1lzMjim_UTGmlPBN1E?usp=sharing).
+
+
 2. We can retrain a conditional DDPM on the other 9 CIFAR-10 classes excluding the forgetting class. 
 
    For instance, forgetting class 0 on CIFAR-10,
