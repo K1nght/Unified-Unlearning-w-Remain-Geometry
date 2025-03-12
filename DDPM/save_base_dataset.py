@@ -47,7 +47,7 @@ def all_but_one_class_dataset(data_path, dataset, label_to_forget):
         num_samples_per_class = 500
 
         subsets = []
-        for class_idx in range(1, 10):
+        for class_idx in range(10):
             class_indices = [
                 i for i, (_, label) in enumerate(filtered_set) if label == class_idx
             ]
