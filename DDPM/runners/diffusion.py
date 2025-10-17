@@ -565,7 +565,7 @@ class Diffusion(object):
                     )
                     pseudo = model(forget_x, t.float(), pseudo_c, mode="train").detach()
                     forget_loss = criteria(pseudo, output)
-
+                else: raise NotImplementedError
             loss = args.forget_alpha * forget_loss + args.remain_alpha * remain_loss
 
             if (step + 1) % self.config.training.log_freq == 0:
@@ -1115,8 +1115,9 @@ class Diffusion(object):
             elif args.unlearn_loss == "adaga":
                 ori_forget_loss = -adaptive_loss(
                     loss_registry_conditional[config.model.type],
-                    model, forget_x, t, forget_c, e, b, gamma=self.config.training.gamma
+                    model, forget_x, t, forget_c, e, b, lambd=self.config.training.lambd
                 )
+            else: raise NotImplementedError
             forget_loss = cur_forget_alpha * ori_forget_loss
             if args.method == "ron":
                 optimizer.zero_grad()
